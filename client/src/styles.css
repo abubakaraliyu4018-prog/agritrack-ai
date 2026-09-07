@@ -1,0 +1,382 @@
+:root {
+  --green: #1b5e20;
+  --green-light: #2e7d32;
+  --green-bg: #e8f5e9;
+  --dark: #1c1c1c;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --white: #ffffff;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f4f6f4;
+  color: var(--dark);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.app-header {
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  color: #fff;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  font-size: 28px;
+}
+
+.brand h1 {
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.tagline {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.badge-ok {
+  background: #c8e6c9;
+  color: #1b5e20;
+}
+
+.badge-warn {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.navbar {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+}
+
+.tab {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  background: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+}
+
+.tab.active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Chat page */
+.chat-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.context-bar {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: var(--green-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.context-bar select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.weather-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  font-size: 12px;
+  background: #fff8e1;
+  border-bottom: 1px solid var(--border);
+  color: #5d4037;
+}
+
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fafbfa;
+}
+
+.welcome {
+  text-align: center;
+  padding: 20px 8px;
+}
+
+.welcome h2 {
+  font-size: 18px;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+
+.welcome p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.quick-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chip {
+  padding: 10px 12px;
+  border: 1px solid var(--green-light);
+  border-radius: 20px;
+  background: #fff;
+  color: var(--green);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.msg {
+  display: flex;
+}
+
+.msg.user {
+  justify-content: flex-end;
+}
+
+.msg.assistant {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: 85%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.msg.user .bubble {
+  background: var(--green);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.msg.assistant .bubble {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 4px;
+}
+
+.bubble.typing {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-top: 1px solid var(--border);
+  background: #fff;
+}
+
+.composer input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  font-size: 14px;
+}
+
+.composer button {
+  padding: 0 18px;
+  border: none;
+  border-radius: 24px;
+  background: var(--green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.composer button:disabled {
+  opacity: 0.5;
+}
+
+/* Dashboard */
+.dashboard-page {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+
+.card h2 {
+  font-size: 16px;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.farm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.farm-form input,
+.farm-form select {
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.farm-form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--green);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.farm-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.farm-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.farm-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.farm-info strong {
+  font-size: 14px;
+}
+
+.farm-info span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.farm-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-small {
+  padding: 6px 10px;
+  border: 1px solid var(--green-light);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--green);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-small.danger {
+  border-color: #e53935;
+  color: #e53935;
+}
+
+.advice-card {
+  background: var(--green-bg);
+  border-color: var(--green-light);
+}
+
+.advice-text {
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.app-footer {
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: #fff;
+}
